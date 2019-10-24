@@ -6,23 +6,17 @@ import argparse
 import os
 
 '''
-main function of connected component labeling algorithm
+main function of Histogram Equalization algorithm
 developed by Cong Zou, 10/10/2019
 
-To use it, open the terminal in Linux or cmd in windows
-enter the directory of main.py and Histogram.py
-CAUTION: These two .py files should be in the same file folder
-imread the img by changing the root
-For instance, enter this order in terminal/cmd
-python main.py --img.dir D:/files/image/moon.bmp
-to find the image.
-
-You can use lighting correction func by --plane_fitting
-and decide whether to use quadratic mode by --quadratic mode
-To get the results of different version, use --process_mode
-1 is only scaled version, 2 is only truncated version, 3 is both of them
-e.g.
+In Python3.7 (Libraries include Matplotlib, opencv(cv2), numpy, argparse, os)
+unzip the file, open terminal/cmd and cd to MP2_CongZou\code. Type:
 python main.py --img_dir moon.bmp --res_dir results --plane_fitting --quadratic_mode --process_mode 3
+--img_dir is the directory of image, default to be 'moon.bmp'
+--res_dir is the directory to save the output, default to be None. Once set, will automatically create file folder and save the results.
+--plane_fitting is the switch of whether using lighting correction
+--quadratic_mode is the switch of whether using quadratic mode
+--process_mode is designed to choose the processing mode: 1 only scaled, 2 only truncated, 3 both
 '''
 
 

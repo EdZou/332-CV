@@ -8,23 +8,21 @@ from Dataloader import ImageDataset
 import pickle
 
 '''
-main function of connected component labeling algorithm
+main function of Color Segmentation
 developed by Cong Zou, 10/16/2019
 
-To use it, open the terminal in Linux or cmd in windows
-enter the directory of main.py and Histogram.py
-CAUTION: These two .py files should be in the same file folder
-imread the img by changing the root
-For instance, enter this order in terminal/cmd
-python main.py --img.dir D:/files/image/moon.bmp
-to find the image.
-
-You can use lighting correction func by --plane_fitting
-and decide whether to use quadratic mode by --quadratic mode
-To get the results of different version, use --process_mode
-1 is only scaled version, 2 is only truncated version, 3 is both of them
-e.g.
-python main.py --img_dir moon.bmp --res_dir results --plane_fitting --quadratic_mode --process_mode 3
+In Python3.7 (Libraries include Matplotlib, opencv(cv2), numpy, argparse, os，tqdm,imghdr)
+unzip the file, open terminal/cmd and cd to MP4_CongZou\code. Type:
+python main.py --oneimage_dir hand.jpg --res_dir results --img_dir joy1.jpg --process_mode 6
+--oneimage_dir is the switch and path to use 1 image as training data, default = None
+--train_dir, --gt_dir is the path to use dataset training, default = 'datasets\FacePhoto' and 'datasets\GT_FacePhoto'
+--config_dir is the path to save and use the model param, if = None then don't save, default = 'config'
+--train_mode switch whether to use train_mode, default = False
+--img_dir is the directory of image, default to be 'joy1.bmp'
+--res_dir is the directory to save the output, default to be None. Once set, will automatically create file folder and save the results.
+--process_mode is designed to choose the processing mode: 1 RGB Histogram, 2 NRGB Histogram, 3  HSI Histogram, 4 RGB Gaussian, 5 NRGB Gaussian, 6 HSI Gaussian
+--h_threshold threshold for Histogram, 0.0001 for hsi(mode 3), 0.0002 for nrgb(mode 2), 0.00002 for rgb(mode 1). For one image version, all of them should be 1*e^-16
+--g_threshold threshold for Gaussian, 1.5 for RGB(mode 4), 7 for NRGB(mode 5), 1.1 for HSI(mode 6). One image version, 6.8 for HSI, 35 for NRGB, 3 for RGB
 '''
 
 
